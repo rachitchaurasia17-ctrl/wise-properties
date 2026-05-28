@@ -180,10 +180,10 @@ function Hero() {
           </div>
         </div>
 
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 56, paddingBottom: 24 }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 56, paddingBottom: 24, overflow: "hidden" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <Echo size="clamp(64px, 14vw, 280px)">FIND YOUR</Echo>
-            <Echo size="clamp(64px, 14vw, 280px)">
+            <Echo size="clamp(44px, 8.5vw, 170px)">FIND YOUR</Echo>
+            <Echo size="clamp(44px, 8.5vw, 170px)">
               <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.04em" }}>dream </span>
               PROPERTY.
             </Echo>
@@ -712,14 +712,8 @@ function About() {
     <section id="about" style={{ paddingTop: 100, paddingBottom: 60 }}>
       <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 56, alignItems: "flex-start" }}>
         <div className="about-photo-col" style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 360, width: "100%", justifySelf: "start" }}>
-          <div className="gs-wrap" style={{ aspectRatio: "4/5", borderRadius: 999, overflow: "hidden", position: "relative", background: "#dcdcdc", width: "100%" }}>
-            {/* TODO: replace assets/jp-singh.png with Wise Properties owner photo */}
-            <div className="gs" style={{ position: "absolute", inset: 0, backgroundImage: "url(assets/jp-singh.png)", backgroundSize: "cover", backgroundPosition: "50% 18%", backgroundRepeat: "no-repeat" }} />
-          </div>
-
           <div style={{ border: "1px solid var(--line)", borderRadius: 6, padding: "20px 22px", background: "var(--paper)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14 }}>
             <div>
-              {/* TODO: replace with owner name */}
               <div className="clash" style={{ fontSize: 19, letterSpacing: "-0.02em", fontWeight: 600, lineHeight: 1.1 }}>[Owner Name]</div>
               <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em", marginTop: 6 }}>Founder & Principal Consultant</div>
             </div>
@@ -728,24 +722,6 @@ function About() {
               <path d="M58 46 L 102 46" stroke="#111" strokeWidth="1" strokeLinecap="round" />
             </svg>
           </div>
-
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=SCO+545+Sector+70+SAS+Nagar+Mohali+Punjab+160071"
-            target="_blank" rel="noopener noreferrer"
-            onClick={(e) => { e.preventDefault(); window.open("https://www.google.com/maps/search/?api=1&query=SCO+545+Sector+70+SAS+Nagar+Mohali+Punjab+160071", "_blank", "noopener,noreferrer"); }}
-            className="gs-wrap"
-            style={{ position: "relative", display: "block", aspectRatio: "16/10", borderRadius: 6, overflow: "hidden", background: "#1e1e1e" }}
-          >
-            <div className="gs" style={{ position: "absolute", inset: 0, backgroundImage: "url(assets/storefront.png)", backgroundSize: "cover", backgroundPosition: "center", filter: "grayscale(0.2)" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 100%)" }} />
-            <div style={{ position: "absolute", left: 16, right: 16, bottom: 14, color: "#f6f6f6", display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12 }}>
-              <div>
-                <div className="uc" style={{ fontSize: 9, letterSpacing: "0.18em", opacity: 0.8 }}>The Office</div>
-                <div className="clash" style={{ fontSize: 15, letterSpacing: "-0.02em", marginTop: 4, fontWeight: 600 }}>SCO-545, Sector 70 · Mohali</div>
-              </div>
-              <div className="uc" style={{ fontSize: 10, letterSpacing: "0.16em", border: "1px solid rgba(246,246,246,0.5)", padding: "6px 10px", borderRadius: 999, whiteSpace: "nowrap" }}>Get directions →</div>
-            </div>
-          </a>
         </div>
 
         <div>
@@ -863,8 +839,7 @@ function IconPin() { return <svg width="14" height="14" viewBox="0 0 24 24" fill
 /* ───────────────────── WhatsApp Float ───────────────────── */
 function WhatsAppFab() {
   const [hover, setHover] = useState(false);
-  // TODO: replace phone with Wise Properties WhatsApp number (format: 91XXXXXXXXXX)
-  const phone = "91XXXXXXXXXX";
+  const phone = "918968017508";
   const text = encodeURIComponent("Hello Wise Properties — I would like to enquire about a property listing.");
   return (
     <a
