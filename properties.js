@@ -1,9 +1,9 @@
-// Property catalogue for J.P. Singh & Co.
-// Real Mohali/Tricity sector references; prices indicative of the 2026 market.
-window.JP_PROPERTIES = [
+// Property catalogue for Wise Properties
+// Real Mohali/Zirakpur sector references; prices indicative of the 2026 market.
+window.WP_PROPERTIES = [
   {
     id: "p01",
-    code: "JPS-2401",
+    code: "WP-2401",
     title: "4 BHK Independent Kothi",
     type: "Residential",
     subType: "Kothi",
@@ -37,7 +37,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p02",
-    code: "JPS-2402",
+    code: "WP-2402",
     title: "Commercial SCO — Corner",
     type: "Commercial",
     subType: "SCO",
@@ -58,7 +58,7 @@ window.JP_PROPERTIES = [
     rera: "PBRERA-SAS70-PR0118",
     tags: ["Corner", "Main Road", "Rented"],
     summary:
-      "A four-storey SCO on the main 100-ft road, two doors from the J.P. Singh & Co. office. Anchor tenant on ground; upper floors leased to a CA firm.",
+      "A four-storey SCO on the main 100-ft road in the Sector 70 commercial belt. Anchor tenant on ground; upper floors leased to a CA firm.",
     detail:
       "One of the better-located SCOs in the Sector 70 commercial belt — corner unit, double frontage, and 100-ft road in front. Ground floor leased to a retail brand (5+5 lock-in remaining), first floor to a chartered accountancy firm, second floor vacant and ready to fit-out, terrace rights with the unit. GMADA-approved, no encumbrance, electricity load of 22 KW sanctioned.",
     hero: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80",
@@ -70,7 +70,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p03",
-    code: "JPS-2403",
+    code: "WP-2403",
     title: "3 BHK Apartment",
     type: "Residential",
     subType: "Apartment",
@@ -103,7 +103,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p04",
-    code: "JPS-2404",
+    code: "WP-2404",
     title: "200 Sq. Yd. Residential Plot",
     type: "Plot",
     subType: "Residential Plot",
@@ -135,7 +135,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p05",
-    code: "JPS-2405",
+    code: "WP-2405",
     title: "Showroom on 200-ft Road",
     type: "Commercial",
     subType: "Showroom",
@@ -167,7 +167,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p06",
-    code: "JPS-2406",
+    code: "WP-2406",
     title: "2 BHK Builder Floor",
     type: "Residential",
     subType: "Builder Floor",
@@ -199,7 +199,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p07",
-    code: "JPS-2407",
+    code: "WP-2407",
     title: "Industrial Plot — JLPL",
     type: "Plot",
     subType: "Industrial Plot",
@@ -231,7 +231,7 @@ window.JP_PROPERTIES = [
   },
   {
     id: "p08",
-    code: "JPS-2408",
+    code: "WP-2408",
     title: "Penthouse — Duplex 4 BHK",
     type: "Residential",
     subType: "Penthouse",

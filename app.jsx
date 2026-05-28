@@ -47,9 +47,9 @@ function Nav({ onContact }) {
   }, [mobileOpen]);
 
   const navLinks = [
-    ["Portfolio", "#portfolio"],
-    ["Practice", "#practice"],
-    ["Insights", "#insights"],
+    ["Our Listings", "#portfolio"],
+    ["About Us", "#practice"],
+    ["Market Updates", "#insights"],
     ["About", "#about"],
   ];
 
@@ -78,9 +78,9 @@ function Nav({ onContact }) {
             <Crown />
             <div style={{ lineHeight: 1.05 }}>
               <div className="clash" style={{ fontSize: 20, letterSpacing: "-0.03em" }}>
-                J.P. SINGH <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.02em" }}>& Co.</span>
+                WISE <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.02em" }}>Properties</span>
               </div>
-              <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em" }}>Est. 1998 · Mohali</div>
+              <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em" }}>Mohali · Punjab</div>
             </div>
           </a>
 
@@ -97,7 +97,7 @@ function Nav({ onContact }) {
               style={{ fontSize: 12, letterSpacing: "0.12em", padding: "12px 22px", borderRadius: 999, border: "1px solid var(--ink-2)", background: "transparent", color: "var(--ink-2)", cursor: "pointer", transition: "background 200ms ease, color 200ms ease" }}
               onMouseEnter={(e) => { e.currentTarget.style.background = "var(--ink-2)"; e.currentTarget.style.color = "var(--bg)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink-2)"; }}
-            >Schedule a Viewing</button>
+            >Schedule a Site Visit</button>
           </nav>
 
           {/* Hamburger */}
@@ -138,9 +138,9 @@ function Nav({ onContact }) {
             onClick={() => { setMobileOpen(false); setTimeout(onContact, 300); }}
             className="uc"
             style={{ fontSize: 13, letterSpacing: "0.12em", padding: "18px 28px", borderRadius: 999, border: "none", background: "var(--ink-2)", color: "var(--bg)", cursor: "pointer", textAlign: "center" }}
-          >Schedule a Viewing →</button>
-          <a href="tel:+919814961008" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", color: "var(--mute)", textAlign: "center" }}>
-            +91 98149 61008
+          >Schedule a Site Visit →</button>
+          <a href="tel:+91XXXXXXXXXX" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", color: "var(--mute)", textAlign: "center" }}>
+            {/* TODO: replace with Wise Properties phone */}+91 XXXXX XXXXX
           </a>
         </div>
       </div>
@@ -153,7 +153,7 @@ function Crown() {
     <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
       <circle cx="20" cy="20" r="19" stroke="#111" strokeWidth="1" />
       <path d="M10 22 L14 14 L20 19 L26 14 L30 22 L28 26 L12 26 Z" fill="#c89a3c" />
-      <text x="20" y="24" textAnchor="middle" fontFamily="Clash Display, sans-serif" fontWeight="700" fontSize="9" fill="#111" letterSpacing="-0.02em">JP</text>
+      <text x="20" y="24" textAnchor="middle" fontFamily="Clash Display, sans-serif" fontWeight="700" fontSize="9" fill="#111" letterSpacing="-0.02em">WP</text>
     </svg>
   );
 }
@@ -166,25 +166,26 @@ function Hero() {
         <div className="hero-top" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 32, flexWrap: "wrap" }}>
           <div style={{ maxWidth: 360 }}>
             <div className="uc" style={{ fontSize: 11, color: "var(--mute)", letterSpacing: "0.18em", marginBottom: 16 }}>
-              ◇ Index № 01 — Property · Investment · Counsel
+              ◇ Index № 01 — Buy · Sell · Rent
             </div>
             <p style={{ margin: 0, fontSize: 15, color: "var(--ink-2)", lineHeight: 1.55, maxWidth: 320 }}>
-              Tri-city specialists for residential, commercial and land assets. GMADA and RERA accredited; quietly placing portfolios since 1998.
+              Your trusted one-stop real estate solution in Mohali and Zirakpur. Honest, first-hand guidance for residential and commercial property.
             </p>
           </div>
           <div className="hero-stats" style={{ display: "flex", gap: 48, alignItems: "flex-start", flexWrap: "wrap" }}>
-            <Stat n="₹ 1,400 Cr+" label="Transactions closed" />
-            <Stat n="27" label="Years in practice" />
-            <Stat n="612" label="Active mandates" />
+            <Stat n="500+" label="Properties Listed" />
+            <Stat n="300+" label="Happy Clients" />
+            {/* TODO: update Years in Business once founding year is confirmed */}
+            <Stat n="5+" label="Years in Business" />
           </div>
         </div>
 
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 56, paddingBottom: 24 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <Echo size="clamp(64px, 14vw, 280px)">PROPERTY</Echo>
+            <Echo size="clamp(64px, 14vw, 280px)">FIND YOUR</Echo>
             <Echo size="clamp(64px, 14vw, 280px)">
-              <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.04em" }}>as </span>
-              CAPITAL.
+              <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.04em" }}>dream </span>
+              PROPERTY.
             </Echo>
           </div>
         </div>
@@ -195,10 +196,11 @@ function Hero() {
           </div>
           <div style={{ display: "flex", gap: 28, alignItems: "center", flexWrap: "wrap" }}>
             <a href="#portfolio" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", borderBottom: "1px solid var(--ink)", paddingBottom: 4 }}>
-              View Portfolio →
+              View Listings →
             </a>
-            <a href="tel:+919814961008" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", color: "var(--mute)" }}>
-              +91 98149 61008
+            {/* TODO: replace with Wise Properties phone number */}
+            <a href="tel:+91XXXXXXXXXX" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", color: "var(--mute)" }}>
+              +91 XXXXX XXXXX
             </a>
           </div>
         </div>
@@ -225,17 +227,17 @@ function Philosophy() {
           <div style={{ width: 1, height: 80, background: "var(--ink-2)", opacity: 0.6 }} />
         </div>
         <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
-          <div className="uc" style={{ fontSize: 11, color: "var(--mute)", letterSpacing: "0.18em", marginBottom: 36 }}>◇ Practice Notes</div>
+          <div className="uc" style={{ fontSize: 11, color: "var(--mute)", letterSpacing: "0.18em", marginBottom: 36 }}>◇ Our Approach</div>
           <p className="clash" style={{ fontSize: "clamp(28px, 5.4vw, 76px)", letterSpacing: "-0.04em", lineHeight: 1.05, margin: 0, fontWeight: 600 }}>
-            We do not sell <span className="serif-it" style={{ fontSize: "1.05em" }}>square feet</span>.<br/>
-            We place <span className="serif-it" style={{ fontSize: "1.05em" }}>capital</span> where the city is going.
+            We find you the <span className="serif-it" style={{ fontSize: "1.05em" }}>right property</span>.<br/>
+            Not just <span className="serif-it" style={{ fontSize: "1.05em" }}>any</span> property.
           </p>
         </div>
         <div style={{ height: 72 }} />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 32, borderTop: "1px solid var(--line)", paddingTop: 48 }}>
-          <Column no="01" head="Counsel before catalogue" body="Every brief begins with the balance sheet, not the brochure. We model the holding period, the exit and the tax shape before a single site is shown." />
-          <Column no="02" head="Title, in plain English" body="Mutation, jamabandi, fard, encumbrance, allotment, conveyance — laid out in a one-page memo per asset. No ambiguity reaches the closing table." />
-          <Column no="03" head="Quiet placement" body="Roughly two-thirds of our inventory never reaches a public portal. Mandates are matched discreetly between long-standing buyers and sellers." />
+          <Column no="01" head="Honest Guidance" body="We give you first-hand, unbiased advice based on your budget and lifestyle — not on what earns us the highest commission." />
+          <Column no="02" head="Market Intelligence" body="Stay ahead with up-to-date knowledge of new launches, pre-launches, and exclusive offers across Mohali and Zirakpur before they go public." />
+          <Column no="03" head="End-to-End Support" body="From the first site visit to the final registry, we handle every step — paperwork, negotiations, documentation — so you never feel lost." />
         </div>
       </div>
     </section>
@@ -266,10 +268,10 @@ function Showcase({ onOpen, properties }) {
       <div className="container">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 40, gap: 24, flexWrap: "wrap" }}>
           <h2 className="clash" style={{ fontSize: "clamp(36px, 6vw, 88px)", letterSpacing: "-0.05em", margin: 0, fontWeight: 700, flex: "1 1 300px", minWidth: 0 }}>
-            Featured <span className="serif-it" style={{ fontWeight: 400 }}>placements</span>
+            Featured <span className="serif-it" style={{ fontWeight: 400 }}>Listings</span>
           </h2>
           <div style={{ flex: "0 1 320px", color: "var(--ink-2)", fontSize: 14, lineHeight: 1.5, paddingTop: 12 }}>
-            A glance at four assets currently with the desk. Tap any tile to open the full memo.
+            A selection of current listings across Mohali and Zirakpur. Tap any tile for full details and to book a site visit.
           </div>
         </div>
         <div className="showcase-grid" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gridAutoRows: "minmax(200px, auto)", gap: 12 }}>
@@ -320,14 +322,14 @@ function Portfolio({ properties, onOpen }) {
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 28 }}>
           <div style={{ flex: "1 1 300px", minWidth: 0 }}>
             <div className="uc" style={{ fontSize: 11, color: "var(--mute)", letterSpacing: "0.18em", marginBottom: 16 }}>
-              ◇ Index № 02 — Live Mandates · {view.length} of {properties.length}
+              ◇ Index № 02 — Active Listings · {view.length} of {properties.length}
             </div>
             <h2 className="clash" style={{ fontSize: "clamp(48px, 9vw, 148px)", letterSpacing: "-0.06em", margin: 0, lineHeight: 0.9, fontWeight: 700 }}>
-              The <span className="serif-it" style={{ fontWeight: 400 }}>Portfolio</span>
+              Our <span className="serif-it" style={{ fontWeight: 400 }}>Listings</span>
             </h2>
           </div>
           <div style={{ flex: "0 1 360px", color: "var(--ink-2)", fontSize: 14, lineHeight: 1.55, paddingTop: 20 }}>
-            Each entry is title-clean, dues-paid and personally inspected by the desk. Click a row for the full memo, photographs and a viewing slot.
+            Residential, commercial, and industrial properties across Mohali and Zirakpur. Click any row for full details, photographs, and to book a site visit.
           </div>
         </div>
 
@@ -357,11 +359,11 @@ function Portfolio({ properties, onOpen }) {
 
         <div style={{ marginTop: 40, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
           <div className="uc" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--mute)" }}>
-            ⓘ Off-market inventory available on request — call the desk.
+            ⓘ More listings available on request — get in touch with us.
           </div>
           <a href="#contact" className="uc"
             style={{ fontSize: 12, letterSpacing: "0.14em", padding: "14px 24px", borderRadius: 999, background: "var(--ink-2)", color: "var(--bg)", display: "inline-flex", alignItems: "center", gap: 10 }}
-          >Request Off-market List <span style={{ fontSize: 16 }}>→</span></a>
+          >Request Full Listings <span style={{ fontSize: 16 }}>→</span></a>
         </div>
       </div>
     </section>
@@ -625,8 +627,9 @@ function Viewing({ p }) {
             <button type="submit" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", padding: "16px 28px", borderRadius: 999, background: "var(--ink-2)", color: "var(--bg)", border: "none", cursor: "pointer" }}>
               Request Viewing →
             </button>
-            <a href="tel:+919814961008" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", color: "var(--mute)" }}>
-              or call +91 98149 61008
+            {/* TODO: replace with Wise Properties phone number */}
+            <a href="tel:+91XXXXXXXXXX" className="uc" style={{ fontSize: 12, letterSpacing: "0.14em", color: "var(--mute)" }}>
+              or call +91 XXXXX XXXXX
             </a>
           </div>
         </form>
@@ -656,12 +659,14 @@ function Field({ label, name, type = "text", textarea, wide, ...rest }) {
 /* ───────────────────── Services ───────────────────── */
 function Services() {
   const items = [
-    { no: "i", head: "Residential Brokerage", body: "Independent kothis, apartments and builder floors across Mohali, Chandigarh, Zirakpur and Kharar. End-to-end from search to registry." },
-    { no: "ii", head: "Commercial Placements", body: "SCOs, showrooms, office space and built-to-suit. We represent owners on the sell-side and corporates on tenant fit-out advisory." },
-    { no: "iii", head: "Land & Plots", body: "GMADA, JLPL, PUDA and private colonies. Allotment paperwork, dues clearance, conveyance and mutation handled in-house." },
-    { no: "iv", head: "Investment Advisory", body: "Holding-period modelling, micro-market reports, rental yield projections and tax-efficient structuring for HNI and NRI buyers." },
-    { no: "v", head: "Property Management", body: "For NRI clients — rental management, statutory filings, society liaison, and a quarterly photographic property report." },
-    { no: "vi", head: "Title & Due Diligence", body: "Pre-purchase memos, encumbrance certificate review and litigation searches in association with a panel of Chandigarh advocates." },
+    { no: "i", head: "Residential Property Sales", body: "Flats, kothis, builder floors, villas, penthouses and residential plots across Mohali and Zirakpur. From first visit to final registry." },
+    { no: "ii", head: "Residential Rentals", body: "Find the right home on rent — 1 BHK to 4 BHK apartments, independent houses, studio apartments, and furnished options." },
+    { no: "iii", head: "Commercial Sales & Leasing", body: "SCOs, showrooms, office spaces, business centers, and commercial plots. We represent both buyers and tenants with honest market guidance." },
+    { no: "iv", head: "Industrial & Warehouse Properties", body: "Factories, industrial sheds, and warehouse spaces in and around Mohali and Zirakpur. Full paperwork support included." },
+    { no: "v", head: "New Launch & Pre-Launch Advisory", body: "Be the first to know about new and upcoming project launches with the best pricing and inventory — before they go public." },
+    { no: "vi", head: "Property Buying Assistance", body: "We shortlist properties that match your budget and preferences, arrange site visits, and negotiate on your behalf for the best deal." },
+    { no: "vii", head: "Property Selling Assistance", body: "We market your property to genuine buyers, handle inquiries, conduct viewings, and close at the right price with minimal hassle." },
+    { no: "viii", head: "Honest Market Guidance", body: "No pressure, no inflated valuations. We give you real data on current market rates so you can make informed decisions every time." },
   ];
   return (
     <section id="insights" style={{ paddingTop: 100, paddingBottom: 100, background: "var(--bg)" }}>
@@ -671,7 +676,7 @@ function Services() {
             Bespoke <span className="serif-it" style={{ fontWeight: 400 }}>services</span>
           </h2>
           <div style={{ flex: "0 1 340px", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.55, paddingTop: 20 }}>
-            Six practice areas, one desk. Every mandate is run by Mr. Singh himself with a small team of analysts.
+            One trusted agency. Whether you are buying, selling, or renting — residential or commercial — we have you covered.
           </div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14 }}>
@@ -708,13 +713,15 @@ function About() {
       <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 56, alignItems: "flex-start" }}>
         <div className="about-photo-col" style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 360, width: "100%", justifySelf: "start" }}>
           <div className="gs-wrap" style={{ aspectRatio: "4/5", borderRadius: 999, overflow: "hidden", position: "relative", background: "#dcdcdc", width: "100%" }}>
+            {/* TODO: replace assets/jp-singh.png with Wise Properties owner photo */}
             <div className="gs" style={{ position: "absolute", inset: 0, backgroundImage: "url(assets/jp-singh.png)", backgroundSize: "cover", backgroundPosition: "50% 18%", backgroundRepeat: "no-repeat" }} />
           </div>
 
           <div style={{ border: "1px solid var(--line)", borderRadius: 6, padding: "20px 22px", background: "var(--paper)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14 }}>
             <div>
-              <div className="clash" style={{ fontSize: 19, letterSpacing: "-0.02em", fontWeight: 600, lineHeight: 1.1 }}>Jaspal P. Singh</div>
-              <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em", marginTop: 6 }}>Principal · Est. 1998</div>
+              {/* TODO: replace with owner name */}
+              <div className="clash" style={{ fontSize: 19, letterSpacing: "-0.02em", fontWeight: 600, lineHeight: 1.1 }}>[Owner Name]</div>
+              <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em", marginTop: 6 }}>Founder & Principal Consultant</div>
             </div>
             <svg width="74" height="40" viewBox="0 0 120 60" fill="none" aria-hidden="true">
               <path d="M6 42 C 18 18, 28 18, 32 36 C 36 50, 42 18, 50 30 C 56 38, 60 22, 66 32 C 72 42, 78 26, 84 34 C 90 42, 98 30, 110 26" stroke="#111" strokeWidth="1.5" strokeLinecap="round" fill="none" />
@@ -723,9 +730,9 @@ function About() {
           </div>
 
           <a
-            href="https://www.google.com/maps/search/?api=1&query=J.P.+Singh+%26+Co+SCO-545+Sector+70+Mohali"
+            href="https://www.google.com/maps/search/?api=1&query=SCO+545+Sector+70+SAS+Nagar+Mohali+Punjab+160071"
             target="_blank" rel="noopener noreferrer"
-            onClick={(e) => { e.preventDefault(); window.open("https://www.google.com/maps/search/?api=1&query=J.P.+Singh+%26+Co+SCO-545+Sector+70+Mohali", "_blank", "noopener,noreferrer"); }}
+            onClick={(e) => { e.preventDefault(); window.open("https://www.google.com/maps/search/?api=1&query=SCO+545+Sector+70+SAS+Nagar+Mohali+Punjab+160071", "_blank", "noopener,noreferrer"); }}
             className="gs-wrap"
             style={{ position: "relative", display: "block", aspectRatio: "16/10", borderRadius: 6, overflow: "hidden", background: "#1e1e1e" }}
           >
@@ -742,20 +749,19 @@ function About() {
         </div>
 
         <div>
-          <div className="uc" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--mute)", marginBottom: 24 }}>◇ The Principal</div>
+          <div className="uc" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--mute)", marginBottom: 24 }}>◇ About Us</div>
           <p className="clash" style={{ fontSize: "clamp(24px, 3.6vw, 48px)", letterSpacing: "-0.035em", lineHeight: 1.15, margin: 0, fontWeight: 500 }}>
-            J.P. Singh has spent <span className="serif-it">twenty-seven years</span> placing property across the Mohali tri-city. The firm is <span className="serif-it">GMADA</span> empanelled, <span className="serif-it">RERA</span> registered, and operates from SCO-545 on the main Sector 70 road.
+            Wise Properties is a <span className="serif-it">trusted real estate agency</span> based in Mohali — your <span className="serif-it">one-stop solution</span> for all property needs.
+          </p>
+          <p style={{ marginTop: 24, fontSize: 15, color: "var(--ink-2)", lineHeight: 1.7 }}>
+            Whether you are buying, selling, or renting, our team provides honest, first-hand guidance to help you find the property that fits your budget and preferences perfectly. We stay ahead of the market with up-to-date knowledge of new launches, pre-launches, and exclusive offers — ensuring our clients never miss the right opportunity. Serving key locations across Mohali (Sector 70, Sector 126) and Zirakpur (Airport Road, Old Ambala Road, Highland Marg), we bring local expertise and genuine care to every transaction.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 24, marginTop: 36, borderTop: "1px solid var(--line)", paddingTop: 28 }}>
-            <Credit k="Practice" v="Residential · Commercial · Land" />
-            <Credit k="Coverage" v="Mohali · Chandigarh · Zirakpur · Kharar · New Chandigarh" />
-            <Credit k="Empanelment" v="GMADA · JLPL · PUDA" />
-            <Credit k="Regulatory" v="PB-RERA Reg. PBREA-AG-0224" />
-          </div>
-          <div style={{ marginTop: 36, borderTop: "1px solid var(--line)", paddingTop: 24, display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
-            <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--mute)" }}>As featured at</div>
-            <div className="clash" style={{ fontSize: 16, letterSpacing: "-0.02em", fontWeight: 600 }}>The Tribune Real Estate Conclave</div>
-            <div style={{ fontSize: 13, color: "var(--mute)" }}>2025</div>
+            <Credit k="Services" v="Residential · Commercial · Industrial" />
+            <Credit k="Coverage" v="Mohali · Zirakpur" />
+            <Credit k="Key Areas" v="Sector 70 · Sector 126 · Airport Road · Old Ambala Road · Highland Marg" />
+            {/* TODO: add RERA registration number if applicable */}
+            <Credit k="Registered" v="Real Estate Agents & Property Services" />
           </div>
         </div>
       </div>
@@ -779,16 +785,17 @@ function ContactBanner() {
       <div className="container">
         <div style={{ borderTop: "1px solid var(--ink-2)", paddingTop: 48, display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 32, flexWrap: "wrap" }}>
           <div>
-            <div className="uc" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--mute)", marginBottom: 24 }}>◇ Speak to the desk</div>
+            <div className="uc" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--mute)", marginBottom: 24 }}>◇ Get in Touch</div>
             <h2 className="clash" style={{ fontSize: "clamp(48px, 9vw, 152px)", letterSpacing: "-0.06em", margin: 0, lineHeight: 0.9, fontWeight: 700 }}>
               <Echo size="clamp(48px, 9vw, 152px)">Let's talk.</Echo>
             </h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-end" }}>
-            <a href="tel:+919814961008" className="clash" style={{ fontSize: "clamp(22px,3.5vw,28px)", letterSpacing: "-0.02em", fontWeight: 600 }}>+91 98149 61008</a>
-            <a href="tel:+919646401401" style={{ fontSize: 16, color: "var(--mute)" }}>+91 96464 01401</a>
-            <a href="mailto:office@jpsinghproperties.in" className="uc" style={{ fontSize: 11, letterSpacing: "0.16em", marginTop: 8, borderBottom: "1px solid var(--ink)", paddingBottom: 4 }}>
-              office@jpsinghproperties.in
+            {/* TODO: replace with Wise Properties phone number */}
+            <a href="tel:+91XXXXXXXXXX" className="clash" style={{ fontSize: "clamp(22px,3.5vw,28px)", letterSpacing: "-0.02em", fontWeight: 600 }}>+91 XXXXX XXXXX</a>
+            {/* TODO: replace with Wise Properties email */}
+            <a href="mailto:info@wiseproperties.in" className="uc" style={{ fontSize: 11, letterSpacing: "0.16em", marginTop: 8, borderBottom: "1px solid var(--ink)", paddingBottom: 4 }}>
+              info@wiseproperties.in
             </a>
           </div>
         </div>
@@ -806,24 +813,25 @@ function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               <Crown />
-              <div className="clash" style={{ color: "#f6f6f6", fontSize: 20, letterSpacing: "-0.03em" }}>J.P. SINGH & Co.</div>
+              <div className="clash" style={{ color: "#f6f6f6", fontSize: 20, letterSpacing: "-0.03em" }}>WISE Properties</div>
             </div>
             <p style={{ marginTop: 20, fontSize: 14, lineHeight: 1.65, maxWidth: 300 }}>
-              Property consultants & investment experts to the Mohali tri-city. GMADA/RERA accredited since 1998. SCO-545, Sector 70 main road, Mohali, Punjab.
+              Your trusted one-stop real estate solution in Mohali and Zirakpur. Buy, sell, or rent residential and commercial properties with honest expert guidance. 2nd Floor, SCO 545, Sector 70, SAS Nagar (Mohali), Punjab 160071.
             </p>
           </div>
-          <FooterCol head="Navigate" links={[["Portfolio", "#portfolio"], ["Practice", "#practice"], ["Services", "#insights"], ["About", "#about"]]} />
-          <FooterCol head="Practice" links={[["Residential", "#"], ["Commercial", "#"], ["Land & Plots", "#"], ["NRI Services", "#"]]} />
+          <FooterCol head="Navigate" links={[["Our Listings", "#portfolio"], ["About Us", "#practice"], ["Market Updates", "#insights"], ["About", "#about"]]} />
+          <FooterCol head="Services" links={[["Residential Sales", "#insights"], ["Residential Rentals", "#insights"], ["Commercial", "#insights"], ["New Launches", "#insights"]]} />
           <FooterCol head="Contact" links={[
-            [<span><IconPhone/> +91 98149 61008</span>, "tel:+919814961008"],
-            [<span><IconPhone/> +91 96464 01401</span>, "tel:+919646401401"],
-            [<span><IconMail/> office@jpsinghproperties.in</span>, "mailto:office@jpsinghproperties.in"],
-            [<span><IconPin/> SCO-545, Sector 70, Mohali</span>, "#"],
+            /* TODO: replace with Wise Properties phone */
+            [<span><IconPhone/> +91 XXXXX XXXXX</span>, "tel:+91XXXXXXXXXX"],
+            /* TODO: replace with Wise Properties email */
+            [<span><IconMail/> info@wiseproperties.in</span>, "mailto:info@wiseproperties.in"],
+            [<span><IconPin/> SCO 545, Sector 70, Mohali 160071</span>, "https://www.google.com/maps/search/?api=1&query=SCO+545+Sector+70+SAS+Nagar+Mohali+Punjab+160071"],
           ]} />
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-          <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>© 2026 J.P. Singh & Co. — All rights reserved</div>
-          <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>PB-RERA · GMADA · JLPL Empanelled</div>
+          <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>© 2026 Wise Properties — All rights reserved</div>
+          <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>Real Estate Agents · Mohali & Zirakpur</div>
         </div>
       </div>
     </footer>
@@ -855,8 +863,9 @@ function IconPin() { return <svg width="14" height="14" viewBox="0 0 24 24" fill
 /* ───────────────────── WhatsApp Float ───────────────────── */
 function WhatsAppFab() {
   const [hover, setHover] = useState(false);
-  const phone = "919814961008";
-  const text = encodeURIComponent("Hello J.P. Singh & Co. — I would like to enquire about a property listing.");
+  // TODO: replace phone with Wise Properties WhatsApp number (format: 91XXXXXXXXXX)
+  const phone = "91XXXXXXXXXX";
+  const text = encodeURIComponent("Hello Wise Properties — I would like to enquire about a property listing.");
   return (
     <a
       href={`https://wa.me/${phone}?text=${text}`}
@@ -880,7 +889,7 @@ function WhatsAppFab() {
 /* ───────────────────── App ───────────────────── */
 function App() {
   const [active, setActive] = useState(null);
-  const props = window.JP_PROPERTIES || [];
+  const props = window.WP_PROPERTIES || [];
 
   return (
     <>
