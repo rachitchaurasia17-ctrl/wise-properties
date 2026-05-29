@@ -78,9 +78,9 @@ function Nav({ onContact }) {
             <Crown />
             <div style={{ lineHeight: 1.05 }}>
               <div className="clash" style={{ fontSize: 20, letterSpacing: "-0.03em" }}>
-                WISE <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.02em" }}>Properties</span>
+                J.P. SINGH <span style={{ fontFamily: "Gambarino, Georgia, serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.02em" }}>& Co.</span>
               </div>
-              <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em" }}>Mohali · Punjab</div>
+              <div className="uc" style={{ fontSize: 10, color: "var(--mute)", letterSpacing: "0.16em" }}>Est. 1998 · Mohali</div>
             </div>
           </a>
 
@@ -153,7 +153,7 @@ function Crown() {
     <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
       <circle cx="20" cy="20" r="19" stroke="#111" strokeWidth="1" />
       <path d="M10 22 L14 14 L20 19 L26 14 L30 22 L28 26 L12 26 Z" fill="#c89a3c" />
-      <text x="20" y="24" textAnchor="middle" fontFamily="Clash Display, sans-serif" fontWeight="700" fontSize="9" fill="#111" letterSpacing="-0.02em">WP</text>
+      <text x="20" y="24" textAnchor="middle" fontFamily="Clash Display, sans-serif" fontWeight="700" fontSize="9" fill="#111" letterSpacing="-0.02em">JP</text>
     </svg>
   );
 }
@@ -727,7 +727,7 @@ function About() {
         <div>
           <div className="uc" style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--mute)", marginBottom: 24 }}>◇ About Us</div>
           <p className="clash" style={{ fontSize: "clamp(24px, 3.6vw, 48px)", letterSpacing: "-0.035em", lineHeight: 1.15, margin: 0, fontWeight: 500 }}>
-            Wise Properties is a <span className="serif-it">trusted real estate agency</span> based in Mohali — your <span className="serif-it">one-stop solution</span> for all property needs.
+            J.P. Singh & Co. is a <span className="serif-it">trusted real estate agency</span> based in Mohali — your <span className="serif-it">one-stop solution</span> for all property needs.
           </p>
           <p style={{ marginTop: 24, fontSize: 15, color: "var(--ink-2)", lineHeight: 1.7 }}>
             Whether you are buying, selling, or renting, our team provides honest, first-hand guidance to help you find the property that fits your budget and preferences perfectly. We stay ahead of the market with up-to-date knowledge of new launches, pre-launches, and exclusive offers — ensuring our clients never miss the right opportunity. Serving key locations across Mohali (Sector 70, Sector 126) and Zirakpur (Airport Road, Old Ambala Road, Highland Marg), we bring local expertise and genuine care to every transaction.
@@ -789,10 +789,10 @@ function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               <Crown />
-              <div className="clash" style={{ color: "#f6f6f6", fontSize: 20, letterSpacing: "-0.03em" }}>WISE Properties</div>
+              <div className="clash" style={{ color: "#f6f6f6", fontSize: 20, letterSpacing: "-0.03em" }}>J.P. SINGH & Co.</div>
             </div>
             <p style={{ marginTop: 20, fontSize: 14, lineHeight: 1.65, maxWidth: 300 }}>
-              Your trusted one-stop real estate solution in Mohali and Zirakpur. Buy, sell, or rent residential and commercial properties with honest expert guidance. 2nd Floor, SCO 545, Sector 70, SAS Nagar (Mohali), Punjab 160071.
+              Your trusted one-stop real estate solution in Mohali and Zirakpur. Buy, sell, or rent residential and commercial properties with honest expert guidance. Est. 1998 · SCO 545, Sector 70, SAS Nagar (Mohali), Punjab 160071.
             </p>
           </div>
           <FooterCol head="Navigate" links={[["Our Listings", "#portfolio"], ["About Us", "#practice"], ["Market Updates", "#insights"], ["About", "#about"]]} />
@@ -806,7 +806,7 @@ function Footer() {
           ]} />
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-          <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>© 2026 Wise Properties — All rights reserved</div>
+          <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>© 2026 J.P. Singh & Co. — All rights reserved</div>
           <div className="uc" style={{ fontSize: 10, letterSpacing: "0.18em" }}>Real Estate Agents · Mohali & Zirakpur</div>
         </div>
       </div>
