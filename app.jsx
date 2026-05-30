@@ -306,7 +306,7 @@ function Portfolio({ properties, onOpen }) {
 
   const view = useMemo(() => {
     let v = properties.slice();
-    if (type !== "All") v = v.filter((p) => p.type === type);
+    if (type !== "All") v = v.filter((p) => (p.type || "").toLowerCase() === type.toLowerCase());
     v.sort((a, b) => {
       const an = parsePrice(a.price), bn = parsePrice(b.price);
       if (sort === "Price ↑") return an - bn;
@@ -861,10 +861,108 @@ function WhatsAppFab() {
   );
 }
 
+/* ───────────────────── Supabase ───────────────────── */
+const SUPABASE_URL = "https://wrbsyqqdgakrbufxqimw.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyYnN5cXFkZ2FrcmJ1ZnhxaW13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxMzA5MjIsImV4cCI6MjA5NTcwNjkyMn0.mWtfz9qqaFK7IgR-Q0RcJ2GDFHl-i-RfL-ol2Ym2zKU";
+const SUPABASE_TABLE = "properties";
+
+function normalizeType(raw) {
+  const lc = (raw || "").toString().trim().toLowerCase();
+  const RESIDENTIAL = ["residential", "res", "villa", "apartment", "flat", "house", "kothi",
+    "penthouse", "builder floor", "builder-floor", "duplex", "studio", "bungalow", "bhk"];
+  const COMMERCIAL  = ["commercial", "com", "comm", "sco", "showroom", "office", "shop",
+    "retail", "warehouse", "industrial", "factory"];
+  const PLOT        = ["plot", "plots", "land", "residential plot", "commercial plot",
+    "industrial plot", "farming"];
+  if (RESIDENTIAL.includes(lc)) return "Residential";
+  if (COMMERCIAL.includes(lc))  return "Commercial";
+  if (PLOT.includes(lc))        return "Plot";
+  if (lc) return lc.charAt(0).toUpperCase() + lc.slice(1);
+  return null;
+}
+
+function formatPrice(raw) {
+  if (raw === null || raw === undefined || raw === "") return "—";
+  const n = parseFloat(raw);
+  if (isNaN(n) || n <= 0) return String(raw);
+  if (n >= 10000000) return `₹ ${(n / 10000000).toFixed(2).replace(/\.?0+$/, "")} Cr`;
+  if (n >= 100000)   return `₹ ${(n / 100000).toFixed(2).replace(/\.?0+$/, "")} L`;
+  return `₹ ${n.toLocaleString("en-IN")}`;
+}
+
+function normalizeProperty(row) {
+  // In the admin schema: `category` = property subtype (villa, apartment, plot…)
+  //                      `type`     = transaction type (sale, rent) — used for status only
+  const rawCategory = row.category || row.listing_type || row.property_type || row.sub_type || "";
+  const type = normalizeType(rawCategory) || "Residential";
+
+  const subTypeRaw = row.category || row.sub_type || row.subtype || row.subType || "";
+  const subType = subTypeRaw
+    ? subTypeRaw.charAt(0).toUpperCase() + subTypeRaw.slice(1).toLowerCase()
+    : type;
+
+  const txnType = (row.type || "").toLowerCase();
+  const statusFromTxn = txnType === "rent" ? "Available for Rent" : txnType === "sale" ? "Available for Sale" : "";
+
+  const builtUp = row.area
+    ? `${row.area} Sq. Ft.`
+    : (row.built_up || row.builtUp || row.built_up_area || "—");
+
+  const heroImg = (row.hero || row.hero_image || row.image_url ||
+    (row.image && row.image !== "" ? row.image : null) ||
+    (Array.isArray(row.images) && row.images.length > 0 ? row.images[0] : null) ||
+    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80");
+
+  return {
+    id:           row.id ?? String(Math.random()),
+    code:         row.code || `WP-${String(row.id || "").slice(0, 6).toUpperCase()}`,
+    title:        row.title || row.name || "Untitled",
+    type,
+    subType,
+    locality:     row.locality || row.location || row.address || "—",
+    plotSize:     row.plot_size || row.plotSize || row.plot || "—",
+    builtUp,
+    bedrooms:     row.bedrooms ?? row.beds ?? row.bhk ?? null,
+    bathrooms:    row.bathrooms ?? row.baths ?? null,
+    facing:       row.facing || "—",
+    parking:      row.parking || "—",
+    furnishing:   row.furnishing || row.furnished || "—",
+    age:          row.age || row.property_age || "—",
+    floor:        row.floor || "—",
+    status:       row.status || statusFromTxn || "—",
+    price:        formatPrice(row.price),
+    pricePerSqft: row.price_per_sqft || row.pricePerSqft || "—",
+    listingDate:  row.listing_date || row.listingDate || row.created_at || new Date().toISOString(),
+    rera:         row.rera || row.rera_number || "—",
+    tags:         Array.isArray(row.tags) ? row.tags : (row.tags ? String(row.tags).split(",").map(t => t.trim()).filter(Boolean) : []),
+    summary:      row.summary || row.description || "",
+    detail:       row.detail || row.details || row.long_description || row.description || "",
+    hero:         heroImg,
+    gallery:      Array.isArray(row.gallery) ? row.gallery : (Array.isArray(row.images) ? row.images : []),
+    amenities:    Array.isArray(row.amenities) ? row.amenities : (row.amenities ? String(row.amenities).split(",").map(a => a.trim()).filter(Boolean) : []),
+  };
+}
+
 /* ───────────────────── App ───────────────────── */
 function App() {
   const [active, setActive] = useState(null);
-  const props = window.WP_PROPERTIES || [];
+  const [props, setProps] = useState(window.WP_PROPERTIES || []);
+
+  useEffect(() => {
+    fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?select=*`, {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": `Bearer ${SUPABASE_KEY}`,
+      }
+    })
+    .then(r => r.json())
+    .then(rows => {
+      if (Array.isArray(rows) && rows.length > 0) {
+        setProps(rows.map(normalizeProperty));
+      }
+    })
+    .catch(err => console.warn("Supabase fetch failed, using static data:", err));
+  }, []);
 
   return (
     <>
