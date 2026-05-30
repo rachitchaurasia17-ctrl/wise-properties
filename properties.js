@@ -1,265 +1,88 @@
-// Property catalogue for Wise Properties
-// Real Mohali/Zirakpur sector references; prices indicative of the 2026 market.
-window.WP_PROPERTIES = [
+// ─────────────────────────────────────────────────────
+//  Wise Properties — properties.js
+//  Auto-loads listings from Supabase database
+//  Admin panel: /admin.html
+// ─────────────────────────────────────────────────────
+
+const SUPABASE_URL = "https://wrbsyqqdgakrbufxqimw.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyYnN5cXFkZ2FrcmJ1ZnhxaW13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxMzA5MjIsImV4cCI6MjA5NTcwNjkyMn0.mWtfz9qqaFK7IgR-Q0RcJ2GDFHl-i-RfL-ol2Ym2zKU";
+
+// Fallback demo data shown while loading or if DB is empty
+const FALLBACK_PROPERTIES = [
   {
-    id: "p01",
-    code: "WP-2401",
-    title: "4 BHK Independent Kothi",
-    type: "Residential",
-    subType: "Kothi",
-    locality: "Sector 91, Mohali",
-    plotSize: "500 Sq. Yd.",
-    builtUp: "5,400 Sq. Ft.",
-    bedrooms: 4,
-    bathrooms: 5,
-    facing: "North-East",
-    parking: 3,
-    furnishing: "Semi-furnished",
-    age: "3 years",
-    floor: "G + 2",
-    status: "Ready to move",
-    price: "₹ 3.85 Cr",
-    pricePerSqft: "₹ 7,130 / Sq. Ft.",
-    listingDate: "12 Apr 2026",
-    rera: "PBRERA-SAS80-PR0421",
-    tags: ["Park Facing", "Corner", "Vaastu"],
-    summary:
-      "A monolithic stone-clad kothi on a quiet park-facing road. Triple-height foyer, oak floors on bedrooms, modular Häcker kitchen, and a back lawn screened by ficus.",
-    detail:
-      "Built by the original owner in 2023, the house sits on a 500 sq. yd. corner plot facing the green belt. Ground floor opens through a 12-ft pivot door into a triple-height foyer with travertine inlay. The drawing and dining are split by a low-profile gas fireplace. Kitchen is full Häcker with Miele appliances and a pantry. Master suite on first floor has its own balcony over the park. Servant quarter and stilt parking for three cars at the rear.",
-    hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["Modular kitchen", "Servant quarter", "Power back-up", "RO water", "CCTV", "Lift-ready shaft"],
+    id: "demo-1",
+    title: "3BHK Apartment — Sector 70, Mohali",
+    price: "₹85,00,000",
+    type: "sale",
+    category: "residential",
+    location: "Sector 70, Mohali",
+    beds: 3,
+    baths: 2,
+    area: 1450,
+    description: "Beautiful apartment with modern interiors, covered parking, and 24/7 security.",
+    image: "",
+    images: [],
+    whatsapp: "9876543210",
+    featured: true,
   },
   {
-    id: "p02",
-    code: "WP-2402",
-    title: "Commercial SCO — Corner",
-    type: "Commercial",
-    subType: "SCO",
-    locality: "Sector 70, Mohali",
-    plotSize: "250 Sq. Yd.",
-    builtUp: "3,600 Sq. Ft.",
-    bedrooms: null,
-    bathrooms: 4,
-    facing: "South",
-    parking: "Front + rear",
-    furnishing: "Bare-shell",
-    age: "8 years",
-    floor: "G + 3",
-    status: "Tenanted — ₹ 1.85 L / month",
-    price: "₹ 5.40 Cr",
-    pricePerSqft: "₹ 15,000 / Sq. Ft.",
-    listingDate: "21 Mar 2026",
-    rera: "PBRERA-SAS70-PR0118",
-    tags: ["Corner", "Main Road", "Rented"],
-    summary:
-      "A four-storey SCO on the main 100-ft road in the Sector 70 commercial belt. Anchor tenant on ground; upper floors leased to a CA firm.",
-    detail:
-      "One of the better-located SCOs in the Sector 70 commercial belt — corner unit, double frontage, and 100-ft road in front. Ground floor leased to a retail brand (5+5 lock-in remaining), first floor to a chartered accountancy firm, second floor vacant and ready to fit-out, terrace rights with the unit. GMADA-approved, no encumbrance, electricity load of 22 KW sanctioned.",
-    hero: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["Lift", "DG back-up", "Front parking", "Signage rights", "22 KW load"],
+    id: "demo-2",
+    title: "2BHK Flat — Zirakpur Highway",
+    price: "₹18,000/mo",
+    type: "rent",
+    category: "residential",
+    location: "Zirakpur",
+    beds: 2,
+    baths: 2,
+    area: 1050,
+    description: "Well-maintained 2BHK near NH-5, close to schools and markets.",
+    image: "",
+    images: [],
+    whatsapp: "9876543210",
+    featured: false,
   },
   {
-    id: "p03",
-    code: "WP-2403",
-    title: "3 BHK Apartment",
-    type: "Residential",
-    subType: "Apartment",
-    locality: "Sector 79, Mohali",
-    plotSize: "—",
-    builtUp: "1,820 Sq. Ft.",
-    bedrooms: 3,
-    bathrooms: 3,
-    facing: "East",
-    parking: 1,
-    furnishing: "Unfurnished",
-    age: "New",
-    floor: "9 of 14",
-    status: "Ready to move",
-    price: "₹ 1.42 Cr",
-    pricePerSqft: "₹ 7,800 / Sq. Ft.",
-    listingDate: "02 May 2026",
-    rera: "PBRERA-SAS79-PR0612",
-    tags: ["High Floor", "Club", "Lift"],
-    summary:
-      "High-floor 3 BHK in a gated society with full club, two-tier security and a 65-ft frontage road. Walk to the upcoming metro alignment.",
-    detail:
-      "South-east corner unit on the 9th floor — sectional kitchen, three balconies, master with walk-in. The complex has a 35,000 sq. ft. club with pool, indoor games, gym, banquet, and an EV-ready basement. Possession is immediate; original allottee, single owner.",
-    hero: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["Club & Pool", "Gym", "2-Tier Security", "EV Charging", "Power back-up"],
-  },
-  {
-    id: "p04",
-    code: "WP-2404",
-    title: "200 Sq. Yd. Residential Plot",
-    type: "Plot",
-    subType: "Residential Plot",
-    locality: "Sector 88, JLPL Mohali",
-    plotSize: "200 Sq. Yd.",
-    builtUp: "—",
-    bedrooms: null,
-    bathrooms: null,
-    facing: "North",
-    parking: "—",
-    furnishing: "—",
-    age: "—",
-    floor: "—",
-    status: "Possession-ready",
-    price: "₹ 1.55 Cr",
-    pricePerSqft: "₹ 86,000 / Sq. Yd.",
-    listingDate: "28 Feb 2026",
-    rera: "PBRERA-SAS88-PR0277",
-    tags: ["GMADA", "JLPL", "Park Side"],
-    summary:
-      "North-facing 200 sq. yd. plot in JLPL Sector 88, two plots from the pocket park. Clean title, all dues paid.",
-    detail:
-      "Allotted in the JLPL Industrial-cum-Residential scheme. 200 sq. yd., 30 ft. front × 60 ft. depth, possession letter issued. Sector 88 has the highest absorption in JLPL over the last 18 months — plot prices have risen 22% YoY. Build coverage 65%, FAR 1.75, three habitable floors plus stilt allowed.",
-    hero: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["GMADA approved", "All dues cleared", "Sector park adj.", "60 ft. road"],
-  },
-  {
-    id: "p05",
-    code: "WP-2405",
-    title: "Showroom on 200-ft Road",
-    type: "Commercial",
-    subType: "Showroom",
-    locality: "Aerocity, Mohali",
-    plotSize: "300 Sq. Yd.",
-    builtUp: "5,200 Sq. Ft.",
-    bedrooms: null,
-    bathrooms: 4,
-    facing: "West",
-    parking: "Front",
-    furnishing: "Bare-shell",
-    age: "New",
-    floor: "G + 2",
-    status: "Vacant",
-    price: "₹ 6.20 Cr",
-    pricePerSqft: "₹ 11,920 / Sq. Ft.",
-    listingDate: "10 Mar 2026",
-    rera: "PBRERA-SAS-AC-PR0095",
-    tags: ["Highway", "Showroom", "Corner"],
-    summary:
-      "Bare-shell showroom on the 200-ft Aerocity main artery. Glass frontage of 45 ft. Ideal for an automobile or furniture brand.",
-    detail:
-      "GMADA Aerocity, plot category SCO-XL. 45 ft. of uninterrupted glass frontage, 28 ft. floor-to-floor on ground, internal staircase plus provision for a customer lift. Power load 35 KW sanctioned. Walk to the upcoming international airport interchange. Vacant — owner open to a 9-year lease at ₹ 4.5 L / month or outright sale.",
-    hero: "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["45 ft. frontage", "Lift shaft", "35 KW load", "Highway facing"],
-  },
-  {
-    id: "p06",
-    code: "WP-2406",
-    title: "2 BHK Builder Floor",
-    type: "Residential",
-    subType: "Builder Floor",
-    locality: "Sector 67, Mohali",
-    plotSize: "—",
-    builtUp: "1,150 Sq. Ft.",
-    bedrooms: 2,
-    bathrooms: 2,
-    facing: "South-West",
-    parking: 1,
-    furnishing: "Semi-furnished",
-    age: "5 years",
-    floor: "2 of 3",
-    status: "Vacant",
-    price: "₹ 78 L",
-    pricePerSqft: "₹ 6,780 / Sq. Ft.",
-    listingDate: "05 Apr 2026",
-    rera: "PBRERA-SAS67-PR0334",
-    tags: ["End Unit", "Stilt Parking", "Wooden Floor"],
-    summary:
-      "Quiet 2 BHK builder floor a five-minute walk from the Phase 11 market. Independent staircase, no maintenance.",
-    detail:
-      "Second-floor unit of a three-storey builder block. Two bedrooms, one with attached balcony; large living-dining; modular kitchen with hob and chimney. Wooden flooring in bedrooms, vitrified tiles elsewhere. Inverter back-up, RO, geysers and ACs included. One stilt parking + visitor space.",
-    hero: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["Modular kitchen", "Inverter", "ACs included", "Independent entry"],
-  },
-  {
-    id: "p07",
-    code: "WP-2407",
-    title: "Industrial Plot — JLPL",
-    type: "Plot",
-    subType: "Industrial Plot",
-    locality: "Sector 82, JLPL Mohali",
-    plotSize: "1,000 Sq. Yd.",
-    builtUp: "—",
-    bedrooms: null,
-    bathrooms: null,
-    facing: "East",
-    parking: "—",
-    furnishing: "—",
-    age: "—",
-    floor: "—",
-    status: "Land use change pending",
-    price: "₹ 7.40 Cr",
-    pricePerSqft: "₹ 74,000 / Sq. Yd.",
-    listingDate: "17 Jan 2026",
-    rera: "PBRERA-SAS82-IND0019",
-    tags: ["Industrial", "IT/ITES Permitted", "1000 Sq. Yd."],
-    summary:
-      "1,000 sq. yd. industrial plot in JLPL Sector 82. IT/ITES permitted use, three-side open, near the Eicher campus.",
-    detail:
-      "Allottee plot in the JLPL Industrial Estate. Three-side open, immediate next to the Eicher Goodearth campus. Permissible use includes IT/ITES, light manufacturing, warehousing. Build coverage 60%, FAR 1.65. Application for CLU (commercial land use) to office park is under process — papers will be transferred on signing.",
-    hero: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["Three-side open", "IT/ITES use", "All dues paid", "Wide internal road"],
-  },
-  {
-    id: "p08",
-    code: "WP-2408",
-    title: "Penthouse — Duplex 4 BHK",
-    type: "Residential",
-    subType: "Penthouse",
-    locality: "Sector 66-A, Mohali",
-    plotSize: "—",
-    builtUp: "3,950 Sq. Ft.",
-    bedrooms: 4,
-    bathrooms: 5,
-    facing: "North",
-    parking: 2,
-    furnishing: "Fully-furnished",
-    age: "2 years",
-    floor: "12-13 of 13",
-    status: "Vacant",
-    price: "₹ 3.20 Cr",
-    pricePerSqft: "₹ 8,100 / Sq. Ft.",
-    listingDate: "19 Mar 2026",
-    rera: "PBRERA-SAS66-PR0211",
-    tags: ["Duplex", "Private Terrace", "Furnished"],
-    summary:
-      "Top-floor duplex penthouse with a 1,200 sq. ft. private terrace and uninterrupted Shivalik view on a clear day.",
-    detail:
-      "Spans the top two floors. Lower level — drawing, dining, family lounge, guest bedroom, kitchen and powder. Upper level — master, two children's rooms, study, and a 1,200 sq. ft. private terrace with deck flooring, pergola, and a wet bar. Fully furnished with Italian sofas, Häcker kitchen, Bosch appliances, smart lighting throughout.",
-    hero: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
-    ],
-    amenities: ["Private terrace", "Smart home", "2 reserved parkings", "Concierge"],
+    id: "demo-3",
+    title: "Commercial Shop — Phase 7, Mohali",
+    price: "₹1,20,00,000",
+    type: "sale",
+    category: "commercial",
+    location: "Phase 7, Mohali",
+    beds: null,
+    baths: null,
+    area: 450,
+    description: "Prime commercial space on main road. High footfall area, ideal for retail.",
+    image: "",
+    images: [],
+    whatsapp: "9876543210",
+    featured: false,
   },
 ];
+
+// ── Fetch properties from Supabase ──────────────────────
+async function fetchProperties() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/properties?order=featured.desc,created_at.desc`,
+      {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
+      }
+    );
+    if (!res.ok) throw new Error("Fetch failed: " + res.status);
+    const data = await res.json();
+    return data && data.length > 0 ? data : FALLBACK_PROPERTIES;
+  } catch (e) {
+    console.warn("Supabase load failed, using fallback data:", e.message);
+    return FALLBACK_PROPERTIES;
+  }
+}
+
+// ── Global used by app.jsx ──────────────────────────────
+// app.jsx should call: window.getProperties().then(props => { ... })
+window.getProperties = fetchProperties;
+
+// Also expose as a ready-promise so app.jsx can await it
+window.propertiesReady = fetchProperties();
